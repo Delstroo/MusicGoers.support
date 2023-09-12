@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Website</title>
+<<<<<<< Updated upstream
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -63,6 +64,9 @@
             }
         }
     </style>
+=======
+    <link rel="stylesheet" type="text/css" href="style.css">
+>>>>>>> Stashed changes
 </head>
 <body>
     <div id="header">
@@ -70,11 +74,19 @@
     </div>
     <div id="content">
         <img id="image" src="musicGoers.png">
-        <form>
+        <form id="feedbackForm" action="https://script.google.com/macros/s/AKfycbzi0mPuzdoq7kvNlUPc1VjPN4aHql8JvQIZYATsCbBl251hXNMvMHSoN6LdVdxOrtGQ/exec" method="post">
             <input type="email" id="email" name="email" placeholder="Email">
             <textarea id="description" name="description" placeholder="Please share some feedback."></textarea>
-            <button id="submit" type="submit">Submit</button>
+            <button id="submit" type="button" disabled>Submit</button> <!-- Disable by default -->
+            <div id="loading" class="hidden"></div>
+            <div id="success" class="hidden">
+                <img src="checkmark.png" alt="Checkmark">
+            </div>
         </form>
     </div>
+
+    <!-- JavaScript code starts here -->
+    <script src="script.js"></script>
+    <!-- JavaScript code ends here -->
 </body>
 </html>

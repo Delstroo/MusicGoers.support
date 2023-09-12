@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    text-align: center;
+}
+
+#content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#header {
+    color: #fff; /* Set text color to black for contrast */
+    padding: 20px;
+}
+
+#image {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+#email, #description {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#submit {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+#loading {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #007bff;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+#success {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: 10px solid #00cc00;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.checkmark {
+    display: inline-block;
+    margin-left: -10px;
+    transform: translateY(5px);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Add this style to adjust the checkmark image size */
+#success img {
+    width: 80px; /* Set the desired width */
+    height: 80px; /* Maintain aspect ratio */
+}
+
+/* Add this style to change the submit button color when disabled */
+#submit:disabled {
+    background-color: #ccc; /* Gray background color for disabled button */
+    color: #fff; /* Text color for better visibility */
+    cursor: not-allowed; /* Change cursor to "not-allowed" for disabled state */
+}
+
