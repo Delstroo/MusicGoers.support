@@ -26,8 +26,8 @@
         }
 
         #image {
-            width: 150px;
-            height: 150px;
+            max-width: 100%;
+            height: auto;
             margin: 0 auto;
             display: block;
         }
@@ -51,6 +51,16 @@
 
         #submit:hover {
             background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            #content {
+                padding: 10px;
+            }
+
+            #email, #description {
+                width: 100%;
+            }
         }
     </style>
 </head>
