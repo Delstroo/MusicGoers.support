@@ -4,69 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Website</title>
-<<<<<<< Updated upstream
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            text-align: center;
-        }
-
-        #content {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        #header {
-            color: #fff; /* Set text color to black for contrast */
-            padding: 20px;
-        }
-
-        #image {
-            max-width: 100%;
-            height: auto;
-            margin: 0 auto;
-            display: block;
-        }
-
-        #email, #description {
-            width: 90%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        #submit {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        #submit:hover {
-            background-color: #0056b3;
-        }
-
-        @media (max-width: 768px) {
-            #content {
-                padding: 10px;
-            }
-
-            #email, #description {
-                width: 100%;
-            }
-        }
-    </style>
-=======
     <link rel="stylesheet" type="text/css" href="style.css">
->>>>>>> Stashed changes
 </head>
 <body>
     <div id="header">
@@ -74,19 +12,34 @@
     </div>
     <div id="content">
         <img id="image" src="musicGoers.png">
-        <form id="feedbackForm" action="https://script.google.com/macros/s/AKfycbzi0mPuzdoq7kvNlUPc1VjPN4aHql8JvQIZYATsCbBl251hXNMvMHSoN6LdVdxOrtGQ/exec" method="post">
-            <input type="email" id="email" name="email" placeholder="Email">
-            <textarea id="description" name="description" placeholder="Please share some feedback."></textarea>
-            <button id="submit" type="button" disabled>Submit</button> <!-- Disable by default -->
+        <form name="submit-to-google-sheet">
+            <input type="Email" id="Email" name="Email" placeholder="Email">
+            <textarea id="Description" name="Description" placeholder="Please share some feedback."></textarea>
+            <button id="submit" type="submit">Submit</button>
             <div id="loading" class="hidden"></div>
             <div id="success" class="hidden">
                 <img src="checkmark.png" alt="Checkmark">
             </div>
         </form>
     </div>
+<!-- JavaScript code starts here -->
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwJnBZFrgzbR-lnrM1bL3t_EfEfor7rvaRBcog9G3FF6DaW0u_5DrLI_8Ioap-HXKR6/exec';
+const form = document.forms['submit-to-google-sheet'];
+const button = document.getElementById("submit");
+const description = document.getElementById("Description");
 
-    <!-- JavaScript code starts here -->
-    <script src="script.js"></script>
-    <!-- JavaScript code ends here -->
+form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      description.innerText = "Message Sent Successfully!"
+                setTimeout(function(){
+                    description.innerText = "Please share some feedback."
+                },5000)
+                form.reset()
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
 </body>
 </html>
