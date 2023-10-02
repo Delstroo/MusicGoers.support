@@ -3,6 +3,7 @@ body {
     background-color: #121212;
     text-align: center;
     height: 100vh;
+    justify-content: center;
 }
 
 #content {
@@ -46,8 +47,9 @@ body {
 
 .image-container img {
     width: 150px;
-    object-fit: cover;
+    object-fit: contain;
     /* border-radius: 15%; */
+    justify-content: center;
     transition: transform 0.3s ease;
 }
 
@@ -141,13 +143,22 @@ body {
     cursor: not-allowed; /* Change cursor to "not-allowed" for disabled state */
 }
 
-.card {
-    padding: 20px;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card {
+    display: inline;
+    max-width: 65%;
     background-color: #1e1e1e;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
-}
+    text-align: center;
+  }
+  
 
 #section {
     margin-bottom: 40px;
