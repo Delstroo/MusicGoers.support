@@ -10,36 +10,52 @@
     <div id="header">
         <h1>MusicGoers Support</h1>
     </div>
-    <div id="content">
-        <img id="image" src="musicGoers.png">
-        <form name="submit-to-google-sheet">
-            <input type="Email" id="Email" name="Email" placeholder="Email">
-            <textarea id="Description" name="Description" placeholder="Please share some feedback."></textarea>
-            <button id="submit" type="submit">Submit</button>
-            <div id="loading" class="hidden"></div>
-            <div id="success" class="hidden">
-                <img src="checkmark.png" alt="Checkmark">
+    <div id="section">
+        <h2>Section Title</h2>
+        <p>Section Description</p>
+        <div class="card">
+            <div class="image-container">
+                <img src="image1.png" alt="Image 1">
+                <img src="image2.png" alt="Image 2">
+                <img src="image3.png" alt="Image 3">
+                <img src="image4.png" alt="Image 4">
             </div>
-        </form>
+        </div>
+        <div class="container">
+            <div id="content">
+                <div class="form-container">
+                <img id="logo" src="musicGoers.png" alt="Logo">
+                <form name="submit-to-google-sheet">
+                    <input type="Email" id="Email" name="Email" placeholder="Email">
+                    <textarea id="Description" name="Description" placeholder="Please share some feedback."></textarea>
+                    <button id="submit" type="submit">Submit</button>
+                    <div id="loading" class="hidden"></div>
+                    <div id="success" class="hidden">
+                        <img src="checkmark.png" alt="Checkmark">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-<!-- JavaScript code starts here -->
-<script>
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwJnBZFrgzbR-lnrM1bL3t_EfEfor7rvaRBcog9G3FF6DaW0u_5DrLI_8Ioap-HXKR6/exec';
-const form = document.forms['submit-to-google-sheet'];
-const button = document.getElementById("submit");
-const description = document.getElementById("Description");
 
-form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      description.innerText = "Message Sent Successfully!"
-                setTimeout(function(){
-                    description.innerText = "Please share some feedback."
-                },5000)
-                form.reset()
-      .catch(error => console.error('Error!', error.message))
-  })
-</script>
+    <!-- JavaScript code starts here -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwJnBZFrgzbR-lnrM1bL3t_EfEfor7rvaRBcog9G3FF6DaW0u_5DrLI_8Ioap-HXKR6/exec';
+        const form = document.forms['submit-to-google-sheet'];
+        const button = document.getElementById("submit");
+        const description = document.getElementById("Description");
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+              .then(response => console.log('Success!', response))
+              description.innerText = "Message Sent Successfully!"
+              setTimeout(function(){
+                  description.innerText = "Please share some feedback."
+              },5000)
+              form.reset()
+              .catch(error => console.error('Error!', error.message))
+        })
+    </script>
 </body>
 </html>
